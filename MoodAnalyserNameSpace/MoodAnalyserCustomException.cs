@@ -10,6 +10,7 @@ namespace MoodAnalyserNameSpace
         {
             EMPTY_MOOD, NULL_MOOD
         }
+
         public ExceptionType exceptionType;
         public MoodAnalyserCustomException(ExceptionType type, string message):base(message)
         {

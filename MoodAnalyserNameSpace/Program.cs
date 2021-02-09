@@ -15,9 +15,9 @@ namespace MoodAnalyserNameSpace
         }
         public MoodAnalyserClass()
         {
-            
+
         }
-       
+
         public string MoodAnalyserMethod(string message)
         {
             try
@@ -27,23 +27,31 @@ namespace MoodAnalyserNameSpace
                 else
                     return "HAPPY";
             }
-            catch(NullReferenceException)//Handled the null Exception
+            catch (NullReferenceException)//Handled the null Exception
             {
                 return "HAPPY";
             }
         }
         public string MoodAnalyseNullAndEmpty()
         {
-            if (message == null)
+            try
+            {
+                if (this.message.Equals(string.Empty))
+                {
+                    throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.EMPTY_MOOD, "Mood should not be empty");
+                }
+                if (this.message.Equals("Sad"))
+                    return "SAD";
+                else
+                    return "HAPPY";
+            }
+            catch (NullReferenceException)
+            {
                 throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.NULL_MOOD, "Mood should not be null");
-            else if (message.ToLower().Contains("sad"))
-                return "SAD";
-            else if (message.Length == 0)
-                throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.EMPTY_MOOD, "Mood should not be empty");
-            else 
-                return "HAPPY";
-        }
+            }
 
+        }
+    
 
         static void Main(string[] args)
         {

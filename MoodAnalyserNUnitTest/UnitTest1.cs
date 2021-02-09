@@ -50,14 +50,15 @@ namespace MoodAnalyserNUnitTest
         [Test]
         public void GivenMessageWhenNullUsingCustomExceptionShouldReturnNullMood()
         {
-            moodAnalyserClass = new MoodAnalyserClass();
+            string message = null;
             try
             {
-                string message = moodAnalyserClass.MoodAnalyseNullAndEmpty();
+                moodAnalyserClass = new MoodAnalyserClass(message);
+                string result = moodAnalyserClass.MoodAnalyseNullAndEmpty();
             }
             catch (MoodAnalyserCustomException exception)
             {
-                Assert.AreEqual(MoodAnalyserCustomException.ExceptionType.NULL_MOOD, exception.exceptionType);
+                Assert.AreEqual("Mood should not be null", exception.Message);
             }
         }
         /// <summary>
@@ -66,14 +67,15 @@ namespace MoodAnalyserNUnitTest
         [Test]
         public void GivenMessageWhenEmptyUsingCustomExceptionShouldReturnEmptyMood()
         {
-            moodAnalyserClass = new MoodAnalyserClass("");
+            string message = "";
             try
             {
-                string message = moodAnalyserClass.MoodAnalyseNullAndEmpty();
+                moodAnalyserClass = new MoodAnalyserClass(message);
+                string result = moodAnalyserClass.MoodAnalyseNullAndEmpty();
             }
             catch (MoodAnalyserCustomException exception)
             {
-                Assert.AreEqual(MoodAnalyserCustomException.ExceptionType.EMPTY_MOOD, exception.exceptionType);
+                Assert.AreEqual("Mood should not be empty", exception.Message);
             }
         }
     }
