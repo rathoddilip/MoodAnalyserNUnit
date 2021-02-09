@@ -32,9 +32,20 @@ namespace MoodAnalyserNameSpace
                 return "HAPPY";
             }
         }
-    
-    
-    static void Main(string[] args)
+        public string MoodAnalyseNullAndEmpty()
+        {
+            if (message == null)
+                throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.NULL_MOOD, "Mood should not be null");
+            else if (message.ToLower().Contains("sad"))
+                return "SAD";
+            else if (message.Length == 0)
+                throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.EMPTY_MOOD, "Mood should not be empty");
+            else 
+                return "HAPPY";
+        }
+
+
+        static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Mood analyser");
         }

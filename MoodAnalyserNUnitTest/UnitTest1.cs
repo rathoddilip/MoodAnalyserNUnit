@@ -44,5 +44,37 @@ namespace MoodAnalyserNUnitTest
             string actual = moodAnalyserClass.MoodAnalyserMethod(null);
             Assert.AreEqual(expected, actual);
         }
+        /// <summary>
+        /// TU3.1 Given Null mood should throw moodAnalyser exception
+        /// </summary>
+        [Test]
+        public void GivenMessageWhenNullUsingCustomExceptionShouldReturnNullMood()
+        {
+            moodAnalyserClass = new MoodAnalyserClass();
+            try
+            {
+                string message = moodAnalyserClass.MoodAnalyseNullAndEmpty();
+            }
+            catch (MoodAnalyserCustomException exception)
+            {
+                Assert.AreEqual(MoodAnalyserCustomException.ExceptionType.NULL_MOOD, exception.exceptionType);
+            }
+        }
+        /// <summary>
+        /// 3.2 given empty mood shoud throws moodAnalyser exception
+        /// </summary>
+        [Test]
+        public void GivenMessageWhenEmptyUsingCustomExceptionShouldReturnEmptyMood()
+        {
+            moodAnalyserClass = new MoodAnalyserClass("");
+            try
+            {
+                string message = moodAnalyserClass.MoodAnalyseNullAndEmpty();
+            }
+            catch (MoodAnalyserCustomException exception)
+            {
+                Assert.AreEqual(MoodAnalyserCustomException.ExceptionType.EMPTY_MOOD, exception.exceptionType);
+            }
+        }
     }
 }
