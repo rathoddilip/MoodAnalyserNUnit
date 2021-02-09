@@ -16,7 +16,9 @@ namespace MoodAnalyserNameSpace
             else
                 return "HAPPY";
         }
-        static void Main(string[] args)
+
+    
+    static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Mood analyser");
         }
