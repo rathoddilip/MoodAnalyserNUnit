@@ -24,7 +24,7 @@ namespace MoodAnalyserNUnitTest
             Assert.AreEqual(expected, actual);
         }
         /// <summary>
-        /// TC1.1 Given "I am in any mood " message shoud return HAPPY
+        /// TC1.2 Given "I am in any mood " message shoud return HAPPY
         /// </summary>
         [Test]
         public void HappyMoodMessageShoudReturnHappy()
@@ -34,6 +34,15 @@ namespace MoodAnalyserNUnitTest
             string actual = moodAnalyserClass.MoodAnalyserMethod(happyMessage);
             Assert.AreEqual(expected, actual);
         }
-
+        /// <summary>
+        /// TC2.1Given Null mood should return Happy
+        /// </summary>
+        [Test]
+        public void GivenMessageWhenNullShouldReturnHappy()
+        {
+            string expected = "HAPPY";
+            string actual = moodAnalyserClass.MoodAnalyserMethod(null);
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
