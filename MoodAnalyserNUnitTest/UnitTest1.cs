@@ -93,11 +93,31 @@ namespace MoodAnalyserNUnitTest
             expected.Equals(obj);
         }
         [Test]
-        public void GivenHappyMood_ShouldReturnHappy()
+        public void GivenHappyMoodShouldReturnHappy()
         {
             object expected = "HAPPY";
             string mood = MoodAnalyserFactory.InvokeAnalyseMethod("Happy", "AnalyseMood");
             Assert.AreEqual(expected, mood);
         }
+        [Test]
+        public void GivenWrongMethodShouldThrowException()
+        {
+            Assert.Throws<MoodAnalyserCustomException>(() => MoodAnalyserFactory.InvokeAnalyseMethod("Happy", "AnalyseMood2"));
+        }
+
+        [Test]
+       
+        public void GivenHappyMessageWithReflectorShouldReturnHappy()
+        {
+            string result = MoodAnalyserFactory.SetField("HAPPY", "message");
+            Assert.AreEqual("HAPPY", result);
+        }
+        [Test]
+        
+        public void GivenHappyMessage_WithImproperFieldReflector_ShouldThrowException()
+        {
+            Assert.Throws<MoodAnalyserCustomException>(() => MoodAnalyserFactory.SetField("HAPPY", "message2"));
+        }
+       
     }
 }
