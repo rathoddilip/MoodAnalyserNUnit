@@ -78,5 +78,12 @@ namespace MoodAnalyserNUnitTest
                 Assert.AreEqual("Mood should not be empty", exception.Message);
             }
         }
+        [Test]
+        public void GivenMoodAnalyseClassNameShouldReturnMoodAnalyseObject()
+        {
+            object expected = new MoodAnalyserClass();
+            object obj = MoodAnalyserFactory.CreateMoodAnalyse("MoodAnalyser.MoodAnalyserClass", "MoodAnalyserClass");
+            expected.Equals(obj);
+        }
     }
 }
