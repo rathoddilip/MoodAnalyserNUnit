@@ -8,7 +8,8 @@ namespace MoodAnalyserNameSpace
     {
         public enum ExceptionType
         {
-            EMPTY_MOOD, NULL_MOOD
+            EMPTY_MOOD, NULL_MOOD,
+            NOSUCHCLASS, NOSUCHMETHOD,
         }
 
         public ExceptionType exceptionType;
