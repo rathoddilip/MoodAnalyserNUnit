@@ -82,7 +82,7 @@ namespace MoodAnalyserNUnitTest
         public void GivenMoodAnalyseClassNameShouldReturnMoodAnalyseObject()
         {
             object expected = new MoodAnalyserClass();
-            object obj = MoodAnalyserFactory.CreateMoodAnalyse("MoodAnalyser.MoodAnalyserClass", "MoodAnalyserClass");
+            object obj = MoodAnalyserFactory.CreateMoodAnalyse("MoodAnalyserNameSpace.MoodAnalyserClass", "MoodAnalyserClass");
             expected.Equals(obj);
         }
     }

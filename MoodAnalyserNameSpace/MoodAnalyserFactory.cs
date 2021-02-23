@@ -28,12 +28,12 @@ namespace MoodAnalyserNameSpace
                 catch (ArgumentNullException)
                 {
 
-                    throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.EMPTY_MOOD, "Class Not found");
+                    throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.CLASS_NOT_FOUND, "Class Not found");
                 }
             }
             else
             {
-                throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.NULL_MOOD, "Constructor is Not found");
+                throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.CONSTRUCTOR_NOT_FOUND, "Constructor is Not found");
             }
 
         }
